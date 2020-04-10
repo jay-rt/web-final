@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Quiz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="main-quiz">
+            <div class="quiz">
+
+            </div>
+
+        </div>
+
+        <aside class="side-user-info">
+            <div class="top">
+                <!-- <div class="delete hidden">
+                    <img src="circle.png" width="50" height="50" alt="" class="players-img">
+                    <div class="del">
+                        <h2 id="remove">Delete</h2>
+                    </div>
+                </div> -->
+                <div class="user-prompt">
+                    <img src="circle.png" width="250" height="250" alt="" class="players-img">
+                    <div class="info">
+                        <h2 id="prompt">Enter User Name</h2>
+                    </div>
+                </div>
+                <div class="user-info hidden">
+                    <img src="circle.png" width="250" height="250" alt="" class="players-img">
+                    <div class="info">
+                        <h1></h1>
+                        <h2>77</h2>
+                    </div>
+                </div>
+                <div class="form hidden">
+                    <img src="circle.png" width="250" height="250" alt="" class="players-img">
+                    <div class="form-name">
+                        <form action="" id="username">
+                            <label for="name">Name</label><br><br>
+                            <input type="text" id="name" required value="" pattern="[A-Za-z]+"><br><br>
+                            <button class="save" type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="players-info">
+                    <img src="circle.png" width="100" height="100" alt="" class="players-img">
+                    <div class="info">
+                        <h2 class="players-name">G.O.A.T</h2>
+                        <h3 class="players-score">55</h3>
+                    </div>
+                </div>
+                <div class="players-info">
+                    <img src="circle.png" width="100" height="100" alt="" class="players-img">
+                    <div class="info">
+                        <h2 class="players-name">G.O.A.T</h2>
+                        <h3 class="players-score">55</h3>
+                    </div>
+                </div>
+                <div class="players-info">
+                    <img src="circle.png" width="100" height="100" alt="" class="players-img">
+                    <div class="info">
+                        <h2 class="players-name">G.O.A.T</h2>
+                        <h3 class="players-score">55</h3>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <template id="question-template">
+        <section class="question-no">
+            <h1>Question 1</h1>
+        </section>
+        <section class="question">
+            <h1>What can you catch that is not thrown?</h1>
+        </section>
+        <div class="options">
+            <p class="ans" id="option-a">Meteor</p>
+            <p class="ans" id="option-b">Bullet</p>
+            <p class="ans" id="option-c">Hailstorm</p>
+            <p class="ans" id="option-d">Pathogens</p>
+        </div>
+    </template>
+
+    <script>
+
+            let quiz = document.querySelector('.quiz');
+            let trivia = document.querySelector('#question-template');
+            let clone = document.importNode(trivia.content, true);
+            quiz.appendChild(clone);
+
+            let newQue = document.querySelector('.options');
+            newQue.addEventListener("click", () => {
+                document.querySelector('.question').classList.toggle('fade');
+                document.querySelector('.options').classList.toggle('flip')
+                setTimeout(() => {
+                    document.querySelector('.question').classList.toggle('fade')
+                    document.querySelector('.options').classList.toggle('flip')
+                },1500)
+            })
+
+            let nam = document.querySelector('.user-prompt')
+            nam.addEventListener("click", () => {
+                nam.classList.toggle('hidden');
+                document.querySelector('.form').classList.toggle('hidden');
+            })
+
+            let user_info = document.querySelector('.top > .user-info');
+            let user_name = document.querySelector('.top > .user-info > .info > h2');
+
+            let name_submit = document.querySelector('.save');
+            name_submit.addEventListener("click", e => {
+                e.preventDefault();
+                document.querySelector('.form').classList.toggle('fade')
+                let name = document.querySelector('#name').value
+                localStorage.setItem('username',name)
+                user_name.innerText = localStorage.getItem('username')
+                setTimeout(() => {
+                    document.querySelector('.form').classList.toggle('fade')
+                    document.querySelector('.form').classList.toggle('hidden')
+                    user_info.classList.toggle('hidden')
+                    // document.querySelector('.delete').classList.toggle('hidden')
+                    name_submit.remove()
+                }, 750)
+            })
+
+            // let del = document.querySelector('#remove');
+            // del.addEventListener("click", () => {
+
+            // I was unable to figure out how to overlay my delete image on top of the default user display and hence I decided to leave it as it is for now and would be working on it during part 2 sumbission.
+
+
+    </script>
+</body>
+</html>

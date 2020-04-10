@@ -1,0 +1,242 @@
+:root {
+    font-size: 62.5%;
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes fade {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: scaleY(-1);
+    }
+    50%{
+        transform: scaleY(0);
+    }
+    100%{
+        transform: scaleY(1)
+    }
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(0.4);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(0.4);
+    }
+}
+
+main {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    background-color: rgb(20, 20, 20);
+}
+
+.main-quiz > .quiz {
+    background-color: rgb(53, 49, 49);
+}
+
+.main-quiz > .quiz > .question-no {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-quiz > .quiz > .question-no > h1 {
+    font-size: 2.5rem;
+    margin: 2rem;
+}
+
+.main-quiz > .quiz > .question {
+    width: 80%;
+    margin: auto;
+}
+
+.main-quiz > .quiz > .question > h1 {
+    font-size: 3.5rem;
+    margin: 2rem;
+    text-align: center;
+}
+
+.main-quiz > .quiz > .options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 5rem auto;
+    width: 70%;
+}
+
+.main-quiz > .quiz > .options > .ans {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+    width: 20rem;
+    margin: 1rem;
+    background-color: rgba(168, 161, 161, 0.5);
+    border-radius: 2rem;
+    padding: 2rem;
+
+}
+
+.main-quiz > .quiz > .options > .ans:hover {
+    box-shadow: 0 0.4rem 1.4rem 0  rgb(20, 20, 20);
+}
+
+.main-quiz > .quiz > .options > .ans {
+    font-size: 2rem;
+}
+
+
+.fade{
+    animation: fade 1.5s ease-in-out backwards;
+}
+
+.flip {
+    animation: flip 1.5s ease-out alternate;
+}
+
+.side-user-info{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: rgba(168, 161, 161, 0.5);
+}
+
+.side-user-info > .top{
+    height: 40%;
+}
+
+.side-user-info > .top > .user-prompt {
+    position: relative;
+    text-align: center;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 2rem; 
+}
+
+.side-user-info > .top > .user-prompt:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(53, 49, 49);
+}
+
+.side-user-info > .top > .user-prompt > .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#prompt {
+    animation: zoom 1s ease-in infinite both;
+}
+
+.side-user-info > .top > .form {
+    position: relative;
+    text-align: center;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 2rem; 
+}
+
+.side-user-info > .top > .form:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(53, 49, 49);
+}
+
+.side-user-info > .top > .form > .form-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.side-user-info > .top > .user-info {
+    position: relative;
+    text-align: center;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.side-user-info > .top > .user-info:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(53, 49, 49);
+}
+
+
+.side-user-info > .top > .user-info > .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.side-user-info > .top > .delete {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+}
+
+.side-user-info > .top > .delete > .del {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.hidden {
+    display: none;
+}
+
+.side-user-info > .bottom > .players-info {
+    position: relative;
+    text-align: center;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 2rem;   
+}
+
+.side-user-info > .bottom > .players-info:hover {
+    box-shadow: 0 0.4rem 1.4rem 0 rgb(53, 49, 49)
+}
+
+.side-user-info > .bottom > .players-info > .info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
