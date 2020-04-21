@@ -48,17 +48,19 @@ html {
     }
 }
 
-/* @keyframes slideIn {
+
+@keyframes slideIn {
     from {
       margin-left: 100%;
-      width: 300%; 
+      width: 100%; 
     }
   
     to {
-      margin-left: 0%;
+      margin-left: -100%;
       width: 100%;
     }
-  } */
+  }
+
 
 @keyframes zoom {
     0% {
@@ -145,20 +147,21 @@ main {
 
 
 .fade{
-    animation: fade 1.5s ease-in-out backwards;
+    animation: fade 1s ease-in-out backwards;
 }
 
-/* .slideIn{
-    animation: slideIn 1.5s ease-in-out  alternate;
-} */
+.slideIn{
+    animation: slideIn 1s ease-in-out  alternate;
+}
 
 .flipY {
-    animation: flipY 1.5s ease-out alternate;
+    animation: flipY 1s ease-out alternate;
 }
 
 .flipX {
-    animation: flipX 1.5s ease-out alternate;
+    animation: flipX 1s ease-out alternate;
 }
+
 
 .side-user-info{
     display: flex;
