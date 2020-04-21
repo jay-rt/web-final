@@ -17,23 +17,24 @@
 
         <aside class="side-user-info">
             <div class="top">
-                <!-- <div class="delete hidden">
-                    <img src="circle.png" width="50" height="50" alt="" class="players-img">
-                    <div class="del">
-                        <h2 id="remove">Delete</h2>
-                    </div>
-                </div> -->
                 <div class="user-prompt">
                     <img src="circle.png" width="250" height="250" alt="" class="players-img">
                     <div class="info">
                         <h2 id="prompt">Enter User Name</h2>
                     </div>
                 </div>
-                <div class="user-info hidden">
+                <div class="user-info hidden under">
                     <img src="circle.png" width="250" height="250" alt="" class="players-img">
                     <div class="info">
                         <h1></h1>
                         <h2>77</h2>
+                        <div class="del">
+                            <img src="circle.png" width="45" height="45" alt="" class="players-img">
+                            <div class="d">
+                                <h3>Del</h3>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="form hidden">
@@ -97,44 +98,65 @@
 
             let newQue = document.querySelector('.options');
             newQue.addEventListener("click", () => {
-                document.querySelector('.question').classList.toggle('fade');
-                document.querySelector('.options').classList.toggle('flip')
+                document.querySelector('.question-no').classList.toggle('flipX');
+                document.querySelector('.question').classList.toggle('flipX');
+                document.querySelector('.options').classList.toggle('flipY')
                 setTimeout(() => {
-                    document.querySelector('.question').classList.toggle('fade')
-                    document.querySelector('.options').classList.toggle('flip')
+                    document.querySelector('.question-no').classList.toggle('flipX');
+                    document.querySelector('.question').classList.toggle('flipX')
+                    document.querySelector('.options').classList.toggle('flipY')
                 },1500)
             })
 
-            let nam = document.querySelector('.user-prompt')
-            nam.addEventListener("click", () => {
-                nam.classList.toggle('hidden');
-                document.querySelector('.form').classList.toggle('hidden');
-            })
+            prompt();
 
-            let user_info = document.querySelector('.top > .user-info');
-            let user_name = document.querySelector('.top > .user-info > .info > h2');
+            function prompt(){
+                let nam = document.querySelector('.user-prompt')
+                nam.addEventListener("click", () => {
+                    nam.classList.toggle('hidden');
+                    document.querySelector('.form').classList.toggle('hidden');
+                    takeData();
+                })
+            }
+            
+            
+            function takeData(){
 
-            let name_submit = document.querySelector('.save');
-            name_submit.addEventListener("click", e => {
-                e.preventDefault();
-                document.querySelector('.form').classList.toggle('fade')
-                let name = document.querySelector('#name').value
-                localStorage.setItem('username',name)
-                user_name.innerText = localStorage.getItem('username')
-                setTimeout(() => {
+                let user_info = document.querySelector('.top > .user-info');
+                let user_name = document.querySelector('.top > .user-info > .info > h1');
+
+                let name_submit = document.querySelector('.save');
+                name_submit.addEventListener("click", e => {
+                    e.preventDefault();
                     document.querySelector('.form').classList.toggle('fade')
-                    document.querySelector('.form').classList.toggle('hidden')
-                    user_info.classList.toggle('hidden')
-                    // document.querySelector('.delete').classList.toggle('hidden')
-                    name_submit.remove()
-                }, 750)
-            })
+                    let name = document.querySelector('#name').value
+                    localStorage.setItem('username',name)
+                    user_name.innerHTML = localStorage.getItem('username')
+                    setTimeout(() => {
+                        document.querySelector('.form').classList.toggle('fade')
+                        document.querySelector('.form').classList.toggle('hidden')
+                        user_info.classList.toggle('hidden')
+                        document.querySelector('.delete').classList.toggle('hidden')
+                        // name_submit.remove()
+                    }, 750)
+                    del();
+                })
+            }
 
-            // let del = document.querySelector('#remove');
-            // del.addEventListener("click", () => {
+            function del(){
+                let del = document.querySelector('.del');
+                del.addEventListener("click", () => {
+                    localStorage.clear();
+                    setTimeout(() => {
+                        document.querySelector('.user-info').classList.toggle('hidden')
+                        document.querySelector('.user-prompt').classList.toggle('hidden')
+                    }, 750)
+                    prompt();
+                })
+            }
+            
 
-            // I was unable to figure out how to overlay my delete image on top of the default user display and hence I decided to leave it as it is for now and would be working on it during part 2 sumbission.
-
+            
 
     </script>
 </body>

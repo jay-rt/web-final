@@ -24,7 +24,7 @@ html {
     }
 }
 
-@keyframes flip {
+@keyframes flipY {
     0% {
         transform: scaleY(-1);
     }
@@ -35,6 +35,30 @@ html {
         transform: scaleY(1)
     }
 }
+
+@keyframes flipX {
+    0% {
+        transform: scaleX(-1);
+    }
+    50%{
+        transform: scaleX(0);
+    }
+    100%{
+        transform: scaleX(1)
+    }
+}
+
+/* @keyframes slideIn {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+  } */
 
 @keyframes zoom {
     0% {
@@ -124,8 +148,16 @@ main {
     animation: fade 1.5s ease-in-out backwards;
 }
 
-.flip {
-    animation: flip 1.5s ease-out alternate;
+/* .slideIn{
+    animation: slideIn 1.5s ease-in-out  alternate;
+} */
+
+.flipY {
+    animation: flipY 1.5s ease-out alternate;
+}
+
+.flipX {
+    animation: flipX 1.5s ease-out alternate;
 }
 
 .side-user-info{
@@ -203,13 +235,16 @@ main {
     transform: translate(-50%, -50%);
 }
 
-.side-user-info > .top > .delete {
-    position: absolute;
-    top: 5%;
-    left: 5%;
+.side-user-info > .top > .user-info > .info > .del {
+    position: relative;
+    text-align: center;
 }
 
-.side-user-info > .top > .delete > .del {
+.side-user-info > .top > .user-info > .info > .del:hover {
+    animation: zoom 1s ease-in infinite both;
+}
+
+.side-user-info > .top > .user-info > .info > .del > .d {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -226,7 +261,7 @@ main {
     text-align: center;
     margin: 2rem;
     padding: 1rem;
-    border-radius: 2rem;   
+    border-radius: 25rem;   
 }
 
 .side-user-info > .bottom > .players-info:hover {
