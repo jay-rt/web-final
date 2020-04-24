@@ -50,15 +50,13 @@ html {
 
 
 @keyframes slideIn {
-    from {
-      margin-left: 100%;
-      width: 100%; 
-    }
-  
-    to {
-      margin-left: -100%;
-      width: 100%;
-    }
+   0%{
+       margin-left: 50%;
+   }50%{
+       margin-left: -200%;
+   }100% {
+       margin-left: 50%;
+   }
   }
 
 
@@ -134,15 +132,12 @@ main {
     background-color: rgba(168, 161, 161, 0.5);
     border-radius: 2rem;
     padding: 2rem;
+    font-size: 2rem;
 
 }
 
 .main-quiz > .quiz > .options > .ans:hover {
     box-shadow: 0 0.4rem 1.4rem 0  rgb(20, 20, 20);
-}
-
-.main-quiz > .quiz > .options > .ans {
-    font-size: 2rem;
 }
 
 
@@ -151,7 +146,7 @@ main {
 }
 
 .slideIn{
-    animation: slideIn 1s ease-in-out  alternate;
+    animation: slideIn 0.75s ease-in-out  alternate;
 }
 
 .flipY {
@@ -160,6 +155,10 @@ main {
 
 .flipX {
     animation: flipX 1s ease-out alternate;
+}
+
+.flip2X {
+    animation: flipX 0.5s ease-out 2 alternate;
 }
 
 
